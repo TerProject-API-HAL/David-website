@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/image.jpeg">
+    <title>DAVID laboratory data</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/blue-dark.css" id="theme" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="meteo.js"></script>
+
+
+</head>
+
+<body onload="rechercheArt(2015,4)">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+
+
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></a>
+                
+                <div class="top-left-part"><a class="logo" href="index.html"><b><img class="image" src="../plugins/images/image.jpeg" alt="home" /></b><span class="hidden-xs"></span></a></div>
+
+                <ul class="nav navbar-top-links navbar-left m-l-20 hidden-xs">
+                    <li>
+                        <form role="search" class="app-search hidden-xs">
+                            <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                   
+                </ul>
+              
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        
+
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 10px 0 0;">
+                        <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
+                    </li>
+                    
+                    <li>
+                        <a href="publication.html" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i><span class="hide-menu">Publication search</span></a>
+                    </li>
+                    <li>
+                        <a href="publication.html?errors=errors" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i><span class="errors-menu">Publication errors</span></a>
+                    </li>
+                  
+                </ul>
+                <div class="center p-20">
+                   
+                </div>
+            </div>
+        </div>
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">List of publications</h4> </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
+                        <ol class="breadcrumb">
+                            <li><a href="index.html">Dashboard</a></li>
+                            <li class="active">List of publications</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+				
+				
+				<div id= "global">  
+
+                         <div class="bloc" id="d11">
+                          <div class="select"> 
+                               <select class="doctyp" >
+                                  <option value="COMM">Communication dans un congrès</option>
+                                  <option value="ART">Article dans une revue</option>
+                                  <option value="THESE">THESE</option>
+                                  <option value="HDR">High dynamic range</option>
+                                  <option value="LECTURE">Lecture</option>
+								  <option value="POSTER">Poster</option>
+								  <option value="COUV">Chapitre d'ouvrage</option>
+								  <option value="DOUV">Direction d'ouvrage</option>
+								  <option value="OTHER">Ouvrage y compris la traduction</option>
+                               </select>
+                           	</div>
+							</div>
+							
+							
+							
+						
+							
+							
+							
+							
+							<div class="bloc" id="d12">
+                          <div class="select"> 
+                               <select class="annee">
+                                  <option value="2015">2015</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2020">2020</option>
+                               </select>
+                           	</div>
+							</div>
+							
+								
+						 <div class="bloc" id="d13" style ="margin-left:400px">
+                          <div class="select"> 
+                               <select class="pub_nationale">
+                                  <option value="fr">Publication Nationale</option>
+                                  <option value="autre">Publication internationale</option>    
+                               </select>
+                           	</div>
+							</div>
+							</div>
+                <!-- /row -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                         
+                            <div class="table-responsive">
+                                <table class="table" id="tab">
+                                    <thead>
+									   <tr ><th></th><th></th><th id=nb_art></th></tr>
+                                        <tr>
+                                            <th>Docid</th>
+                                            <th>Titre</th>
+											 <th>Auteur</th>
+											<th>Lien</th>
+                                            <th>Annee</th>
+											<th>Type</th>
+											<th>Pays</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody id="zone_affiche">
+									
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="card shadow mb-4" style="padding: 20px;">
+                </div>
+                <div class="card shadow mb-4" style="padding: 20px;">
+                    <div id="result">
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2020 &copy; DAVID laboratory</footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    
+	 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/hal_js/scripthal.js"></script>
+	<script >
+        $(document).ready(function(){
+		
+          $("select.annee").change(function(){
+            var annee = $(this).children("option:selected").val();
+            //alert("Vous avez sélectionné l'anne : " + annee);
+			//$(#tab).load();
+             
+			
+			rechercheArt(annee,1);
+			//$(#tab).load( #tab);
+          });
+		  
+		  $("select.doctyp").change(function(){
+            var typePub = $(this).children("option:selected").val();
+            //alert("Vous avez sélectionné l'annee : " + annee);
+			//$(#tab).load();
+             
+			
+			rechercheArt(typePub,0);
+			//$(#tab).load( #tab);
+          });
+		  
+		  
+		  $("select.pub_nationale").change(function(){
+            var pub_nationale = $(this).children("option:selected").val();
+            //alert("Vous avez sélectionné l'annee : " + annee);
+			//$(#tab).load();
+             
+			
+			rechercheArt(pub_nationale,2);
+			//$(#tab).load( #tab);
+          });
+		  
+		  
+        });
+ </script>
+
+     <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+
+	
+</body>
+
+</html>

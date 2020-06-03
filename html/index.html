@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/image.jpeg">
+    <title>DAVID laboratory data</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/blue-dark.css" id="theme" rel="stylesheet">
+     <!--link href="css/spinners.css" rel="stylesheet"-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="meteo.js"></script>
+  
+</head>
+
+<body>
+     <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></a>
+                
+                <div class="top-left-part"><a class="logo" href="index.html"><b><img class="image" src="../plugins/images/image.jpeg" alt="home" /></b><span class="hidden-xs"></span></a></div>
+
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                   
+                </ul>
+              
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 10px 0 0;">
+                        <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
+                    </li>
+                  
+                    <li>
+                        <a href="publication.html" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i><span class="hide-menu">Publication Search</span></a>
+                    </li>
+                    <li>
+                        <a href="publication.html?errors=errors" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i><span class="errors-menu">Publication errors</span></a>
+                    </li>
+    
+                </ul>
+              
+            </div>
+        </div>
+        <!-- Left navbar-header end -->
+         <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Labo David </h4> </div>
+                   
+                    <!-- /.col-lg-12 -->
+                </div>
+            
+                <!-- Begin Page Content -->
+            <div class="container-fluid" id="page">
+
+                <!-- Page Heading -->
+                
+                <!--<input type="Button" name="DAVID" value="LABORATOIRE DAVID" class="btn btn-primary btn-icon-split"
+                       onclick="getDavid()">
+            
+                 DataTales Example -->
+                 <script type="text/javascript">
+                     getDavid();
+                 </script>
+                <div class="card shadow mb-4">
+                
+                    <div class="card-body">
+                        <div class="table-responsive" id="tb">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Type de Publication</th>
+                                    <th>2015</th>
+                                    <th>2016</th>
+                                    <th>2017</th>
+                                    <th>2018</th>
+                                    <th>2019</th>
+                                    <th>2020</th>
+                                    <th>Totaux</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow mb-4" style="padding: 20px;">
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart" width="800" height="450"></canvas>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="card shadow mb-4" style="padding: 20px;">
+                    <div id="result">
+                    </div>
+                </div>
+
+            </div>
+
+               
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2020 &copy; DAVID laboratory data</footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!--Morris JavaScript -->
+    <script src="../plugins/bower_components/raphael/raphael-min.js"></script>
+    <!--<script src="../plugins/bower_components/morrisjs/morris.js"></script>-->
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!--<script src="js/dashboard1.js"></script>-->
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $.toast({
+            heading: 'Welcome',
+            text: 'This application provides access to data from the DAVID laboratory.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'info',
+            hideAfter: 4500,
+            stack: 6
+        })
+    });
+    </script>
+    
+     <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+   <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+
+</body>
+
+</html>
